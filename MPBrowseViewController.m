@@ -39,8 +39,8 @@
 }
 
 -(void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController{
-    
-    [[[MPManager sharedManager]mcBrowser] dismissViewControllerAnimated:YES completion:^{[self goToMainScreen:nil];}];
+    __weak __typeof(self)weakSelf = self;
+    [[[MPManager sharedManager]mcBrowser] dismissViewControllerAnimated:YES completion:^{[weakSelf goToMainScreen:nil];}];
 }
 
 -(void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController{
